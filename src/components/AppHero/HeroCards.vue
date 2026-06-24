@@ -14,7 +14,7 @@ const stats = ref([
         <div
             v-for="stat in stats"
             :key="stat.statAmount"
-            class="bg-indigo-100/90 dark:bg-indigo-950/90 border border-stone-100 shadow px-8 py-5 rounded-lg"
+            class="bg-indigo-100/90 dark:bg-indigo-950/90 border border-stone-100 shadow px-8 py-5 rounded-lg brand-transition"
         >
             <div class="font-display font-black brand-text text-5xl text-center">
                 {{ stat.statAmount }}
