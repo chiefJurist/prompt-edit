@@ -13,7 +13,7 @@
     @apply text-indigo-700;
 }
 .brand-bg-hover {
-    @apply bg-indigo-700 hover:bg-indigo-500/90;
+    @apply bg-indigo-700 hover:bg-indigo-500/90 transition-all duration-500 ease-in-out;
 }
 .mobile-menu-link {
     @apply block text-lg font-medium text-gray-700 dark:text-gray-300 p-2;
