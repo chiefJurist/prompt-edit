@@ -31,10 +31,10 @@ const steps = ref([
         <div
             v-for="step in steps"
             :key="step.stepNumber"
-            class="bg-indigo-50/10 dark:bg-indigo-950/10 border border-stone-100 dark:border-stone-800 shadow px-8 py-5 rounded-lg brand-transition"
+            class="bg-indigo-50/70 dark:bg-indigo-950/70 border border-stone-100 dark:border-stone-800 shadow px-8 py-5 rounded-lg brand-transition"
         >
             <div
-                class="font-display font-black text-5xl md:text-7xl text-indigo-50 dark:text-indigo-950 text-center"
+                class="font-display font-black text-5xl md:text-7xl text-indigo-200 dark:text-indigo-800 text-center"
             >
                 {{ step.stepNumber }}
             </div>
