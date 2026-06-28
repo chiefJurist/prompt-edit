@@ -9,7 +9,7 @@ import vidE from '../../assets/Videos/ImageTools/youtube-thumbnails.mp4'
 import vidF from '../../assets/Videos/ImageTools/online-ads.mp4'
 
 const videos = ref([
-    { id: 1, name: 'AI Clone', url: vidA },
+    { id: 1, name: 'AI Clones', url: vidA },
     { id: 2, name: 'Social Media Posts', url: vidB },
     { id: 3, name: 'Graphic Designs', url: vidC },
     { id: 4, name: 'Image Editing', url: vidD },

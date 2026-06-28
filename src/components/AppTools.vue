@@ -1,8 +1,8 @@
 <script setup>
-import ToolsAudio from './AppTools/ToolsAudio.vue'
-import ToolsImage from './AppTools/ToolsImage.vue'
+import ToolsAudio from './AppTools/ToolsAudioCard.vue'
+import ToolsImage from './AppTools/ToolsImageCard.vue'
 import ToolsIntro from './AppTools/ToolsIntro.vue'
-import ToolsVideo from './AppTools/ToolsVideo.vue'
+import ToolsVideo from './AppTools/ToolsVideoCard.vue'
 </script>
 
 <template>
