@@ -2,6 +2,7 @@
 import AppGuide from './components/AppGuide.vue'
 import AppHero from './components/AppHero.vue'
 import AppNav from './components/AppNav.vue'
+import AppTemplate from './components/AppTemplate.vue'
 import AppTools from './components/AppTools.vue'
 </script>
 
@@ -11,5 +12,6 @@ import AppTools from './components/AppTools.vue'
         <AppHero />
         <AppGuide />
         <AppTools />
+        <AppTemplate />
     </div>
 </template>
