@@ -1,73 +1,63 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
-import vidA from '../../assets/Videos/ImageTools/ai-clones.mp4'
-import vidB from '../../assets/Videos/ImageTools/social-media-posts.mp4'
-import vidC from '../../assets/Videos/ImageTools/graphic-designs.mp4'
-import vidD from '../../assets/Videos/ImageTools/image-editing.mp4'
-import vidE from '../../assets/Videos/ImageTools/youtube-thumbnails.mp4'
-import vidF from '../../assets/Videos/ImageTools/online-ads.mp4'
+import imgA from '../../assets/images/AudioTools/ai-music-generation.png'
+import imgB from '../../assets/images/AudioTools/ai-voiceovers.png'
+import imgC from '../../assets/images/AudioTools/ai-voice-clones.png'
+import imgD from '../../assets/images/AudioTools/voice-swaps.png'
+import imgE from '../../assets/images/AudioTools/ai-sound-effects.png'
 
-const videos = ref([
-    { id: 1, name: 'AI Clone', url: vidA },
-    { id: 2, name: 'Social Media Posts', url: vidB },
-    { id: 3, name: 'Graphic Designs', url: vidC },
-    { id: 4, name: 'Image Editing', url: vidD },
-    { id: 5, name: 'Youtube Thumbnails', url: vidE },
-    { id: 6, name: 'Online Ads', url: vidF },
+const images = ref([
+    { id: 1, name: 'AI Music Generation', url: imgA },
+    { id: 2, name: 'AI Voiceovers', url: imgB },
+    { id: 3, name: 'AI Voice Clones', url: imgC },
+    { id: 4, name: 'Voice Swaps', url: imgD },
+    { id: 5, name: 'AI Sound Effects', url: imgE },
 ])
 
-const tools = ref([
-    { label: 'Nano banana' },
-    { label: 'ChatGPT' },
-    { label: 'Grok' },
-    { label: 'Ideogram' },
-])
+const tools = ref([{ label: 'Eleven Labs' }, { label: 'HeyGen' }, { label: 'Whisper Memos' }])
 
 const currentIndex = ref(0)
-const videoRef = ref(null)
+const isTransitioning = ref(false)
+let intervalId = null
 
-function onVideoEnded() {
-    currentIndex.value = (currentIndex.value + 1) % videos.value.length
+function nextSlide() {
+    if (isTransitioning.value) return
+    isTransitioning.value = true
+    setTimeout(() => {
+        currentIndex.value = (currentIndex.value + 1) % images.value.length
+        isTransitioning.value = false
+    }, 400)
 }
 
 function goToSlide(i) {
     if (i === currentIndex.value) return
+    clearInterval(intervalId)
     currentIndex.value = i
+    intervalId = setInterval(nextSlide, 3500)
 }
 
-// Whenever the slide changes, reload & play the new video
-watch(currentIndex, () => {
-    if (videoRef.value) {
-        videoRef.value.load()
-        videoRef.value.play()
-    }
+onMounted(() => {
+    intervalId = setInterval(nextSlide, 3500)
 })
 
-onMounted(() => {
-    if (videoRef.value) {
-        videoRef.value.play()
-    }
+onUnmounted(() => {
+    clearInterval(intervalId)
 })
 </script>
 
 <template>
     <div
-        class="group relative w-full max-w-sm rounded-2xl overflow-hidden cursor-pointer border border-gray-200 dark:border-white/[0.07] bg-white dark:bg-gray-900 shadow-sm dark:shadow-none transition-all duration-500 ease-out hover:-translate-y-1.5 hover:scale-105 hover:shadow-xl hover:border-indigo-300 dark:hover:border-indigo-700/60 dark:hover:shadow-2xl dark:hover:shadow-black/50"
+        class="group relative w-full max-w-sm rounded-2xl overflow-hidden cursor-pointer border border-gray-200 dark:border-white/7 bg-white dark:bg-gray-900 shadow-sm dark:shadow-none transition-all duration-500 ease-out hover:-translate-y-1.5 hover:scale-105 hover:shadow-xl hover:border-indigo-300 dark:hover:border-indigo-700/60 dark:hover:shadow-2xl"
     >
-        <!-- ── Video Slideshow ── -->
+        <!-- ── Image Slideshow ── -->
         <div class="relative w-full aspect-video bg-gray-100 dark:bg-gray-950 overflow-hidden">
             <transition name="slide-morph" mode="out-in">
-                <div :key="videos[currentIndex].id" class="absolute inset-0 overflow-hidden">
-                    <video
-                        ref="videoRef"
-                        :src="videos[currentIndex].url"
-                        :alt="videos[currentIndex].name"
+                <div :key="images[currentIndex].id" class="absolute inset-0 overflow-hidden">
+                    <img
+                        :src="images[currentIndex].url"
+                        :alt="images[currentIndex].name"
                         class="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-                        muted
-                        playsinline
-                        autoplay
-                        @ended="onVideoEnded"
                     />
 
                     <!-- Name badge — bottom-left -->
@@ -75,12 +65,12 @@ onMounted(() => {
                         class="absolute bottom-2.5 left-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-2.5 py-1 pointer-events-none"
                     >
                         <span
-                            class="w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0 shadow-sm shadow-indigo-400"
+                            class="w-1.5 h-1.5 rounded-full bg-indigo-400 dark:bg-indigo-400 shrink-0 shadow-sm shadow-indigo-400"
                         />
                         <span
                             class="text-xs font-medium text-white/90 tracking-wide whitespace-nowrap"
                         >
-                            {{ videos[currentIndex].name }}
+                            {{ images[currentIndex].name }}
                         </span>
                     </div>
                 </div>
@@ -89,11 +79,11 @@ onMounted(() => {
             <!-- Slide indicators — bottom-right -->
             <div class="absolute bottom-2.5 right-3 flex items-center gap-1.5">
                 <button
-                    v-for="(vid, i) in videos"
-                    :key="vid.id"
+                    v-for="(img, i) in images"
+                    :key="img.id"
                     :aria-label="`Go to slide ${i + 1}`"
                     @click="goToSlide(i)"
-                    class="w-1.5 h-1.5 rounded-full border-0 p-0 cursor-pointer transition-all duration-300"
+                    class="w-1.5 h-1.5 rounded-full border-0 p-0 cursor-pointer transition-all duration-500"
                     :class="
                         i === currentIndex
                             ? 'bg-indigo-400 scale-125 shadow-sm shadow-indigo-400'
@@ -126,12 +116,13 @@ onMounted(() => {
 
             <!-- Title -->
             <h3 class="text-base font-bold leading-snug text-gray-900 dark:text-gray-50">
-                AI Image Generation
+                AI Audio Generation
             </h3>
 
             <!-- Description -->
             <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-                Edit and generate stunning images for your daily needs using just a single prompt.
+                Create and edit any form of professional audio ready to drop into any project with a
+                single prompt.
             </p>
 
             <!-- Tool tags -->
@@ -149,6 +140,7 @@ onMounted(() => {
 </template>
 
 <style scoped>
+/* Vue transition states for the blur-fade-drift effect */
 .slide-morph-enter-active {
     transition:
         opacity 0.45s ease,

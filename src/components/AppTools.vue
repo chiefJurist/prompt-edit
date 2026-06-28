@@ -1,4 +1,6 @@
 <script setup>
+import ToolsAudio from './AppTools/ToolsAudio.vue'
+import ToolsImage from './AppTools/ToolsImage.vue'
 import ToolsIntro from './AppTools/ToolsIntro.vue'
 import ToolsVideo from './AppTools/ToolsVideo.vue'
 </script>
@@ -12,8 +14,10 @@ import ToolsVideo from './AppTools/ToolsVideo.vue'
         <ToolsIntro />
 
         <!-- Tools Cards -->
-        <div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-10">
             <ToolsVideo />
+            <ToolsImage />
+            <ToolsAudio />
         </div>
     </div>
 </template>
