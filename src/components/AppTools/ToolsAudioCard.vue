@@ -15,7 +15,12 @@ const images = ref([
     { id: 5, name: 'AI Sound Effects', url: imgE },
 ])
 
-const tools = ref([{ label: 'Eleven Labs' }, { label: 'HeyGen' }, { label: 'Whisper Memos' }])
+const tools = ref([
+    { label: 'Eleven Labs' },
+    { label: 'HeyGen' },
+    { label: 'Whisper Memos' },
+    { label: 'Suno' },
+])
 
 const currentIndex = ref(0)
 const isTransitioning = ref(false)
@@ -109,14 +114,18 @@ onUnmounted(() => {
                     stroke-linecap="round"
                     stroke-linejoin="round"
                 >
-                    <polygon points="23 7 16 12 23 17 23 7" />
-                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                    <rect x="2" y="9" width="2" height="6" rx="1" />
+                    <rect x="6" y="5" width="2" height="14" rx="1" />
+                    <rect x="10" y="2" width="2" height="20" rx="1" />
+                    <rect x="14" y="5" width="2" height="14" rx="1" />
+                    <rect x="18" y="8" width="2" height="8" rx="1" />
+                    <rect x="22" y="10" width="2" height="4" rx="1" />
                 </svg>
             </div>
 
             <!-- Title -->
             <h3 class="text-base font-bold leading-snug text-gray-900 dark:text-gray-50">
-                AI Audio Generation
+                AI Voice & Audio
             </h3>
 
             <!-- Description -->

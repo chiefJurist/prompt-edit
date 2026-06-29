@@ -2,6 +2,7 @@
 import ToolsAudio from './AppTools/ToolsAudioCard.vue'
 import ToolsImage from './AppTools/ToolsImageCard.vue'
 import ToolsIntro from './AppTools/ToolsIntro.vue'
+import ToolsPluginCard from './AppTools/ToolsPluginCard.vue'
 import ToolsVideo from './AppTools/ToolsVideoCard.vue'
 </script>
 
@@ -15,6 +16,7 @@ import ToolsVideo from './AppTools/ToolsVideoCard.vue'
 
         <!-- Tools Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-10">
+            <ToolsPluginCard />
             <ToolsVideo />
             <ToolsImage />
             <ToolsAudio />

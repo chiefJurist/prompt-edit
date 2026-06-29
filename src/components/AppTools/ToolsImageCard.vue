@@ -22,6 +22,7 @@ const tools = ref([
     { label: 'ChatGPT' },
     { label: 'Grok' },
     { label: 'Ideogram' },
+    { label: 'Flux' },
 ])
 
 const currentIndex = ref(0)
@@ -119,8 +120,9 @@ onMounted(() => {
                     stroke-linecap="round"
                     stroke-linejoin="round"
                 >
-                    <polygon points="23 7 16 12 23 17 23 7" />
-                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                    <rect x="2" y="3" width="20" height="16" rx="2" />
+                    <circle cx="8" cy="8" r="2" />
+                    <polygon points="2,19 9,10 14,16 17,12 22,19" />
                 </svg>
             </div>
 
@@ -131,7 +133,7 @@ onMounted(() => {
 
             <!-- Description -->
             <p class="text-sm leading-relaxed text-gray-500 dark:text-gray-400">
-                Edit and generate stunning images for your daily needs using just a single prompt.
+                Thumbnails, ads, AI clones, social posts and all professional visuals in seconds.
             </p>
 
             <!-- Tool tags -->
