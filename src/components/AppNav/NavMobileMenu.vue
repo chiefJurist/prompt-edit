@@ -23,7 +23,6 @@ defineEmits(['closeMenu'])
                 <a href="#templates" @click="$emit('closeMenu')" class="mobile-menu-link"
                     >Templates</a
                 >
-                <a href="#plugins" @click="$emit('closeMenu')" class="mobile-menu-link">Plugins</a>
                 <a href="#pricing" @click="$emit('closeMenu')" class="mobile-menu-link">Pricing</a>
                 <a href="#faq" @click="$emit('closeMenu')" class="mobile-menu-link">FAQ</a>
                 <a

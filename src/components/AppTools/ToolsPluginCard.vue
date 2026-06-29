@@ -83,7 +83,7 @@ onMounted(() => {
 
             <!-- Title -->
             <h3 class="text-base font-bold leading-snug text-gray-900 dark:text-gray-50">
-                AI Editing Plugins
+                Editing Plugins
             </h3>
 
             <!-- Description -->
