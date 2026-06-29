@@ -2,6 +2,7 @@
 import AppGuide from './components/AppGuide.vue'
 import AppHero from './components/AppHero.vue'
 import AppNav from './components/AppNav.vue'
+import AppPricing from './components/AppPricing.vue'
 import AppTemplate from './components/AppTemplate.vue'
 import AppTools from './components/AppTools.vue'
 </script>
@@ -13,5 +14,6 @@ import AppTools from './components/AppTools.vue'
         <AppGuide />
         <AppTools />
         <AppTemplate />
+        <AppPricing />
     </div>
 </template>
