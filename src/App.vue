@@ -3,6 +3,7 @@ import AppGuide from './components/AppGuide.vue'
 import AppHero from './components/AppHero.vue'
 import AppNav from './components/AppNav.vue'
 import AppPricing from './components/AppPricing.vue'
+import AppReview from './components/AppReview.vue'
 import AppTemplate from './components/AppTemplate.vue'
 import AppTools from './components/AppTools.vue'
 </script>
@@ -15,5 +16,6 @@ import AppTools from './components/AppTools.vue'
         <AppTools />
         <AppTemplate />
         <AppPricing />
+        <AppReview />
     </div>
 </template>
