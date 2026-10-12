@@ -1,6 +1,6 @@
 # prompt-edit
 
-This project is a template free template to use for Vue.js frontend websites.
+This project is a free template to use for Vue.js frontend websites.
 
 
 ## Prerequisite
